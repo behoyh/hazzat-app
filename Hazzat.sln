@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazzat", "Hazzat\Hazzat\Haz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazzat.Service", "Hazzat\Hazzat.Service\Hazzat.Service.csproj", "{B1FE103A-AA9F-4305-9E83-64DDA841B809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazzat.iOS", "..\Downloads\Touch_start\Hazzat.iOS.csproj", "{93027FF2-0AA6-4106-A3B3-374F5FE999A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hazzat.iOS", "Hazzat\Hazzat.iOS\Hazzat.iOS.csproj", "{93027FF2-0AA6-4106-A3B3-374F5FE999A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
