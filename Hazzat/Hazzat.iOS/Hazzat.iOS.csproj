@@ -26,7 +26,9 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
-  <MtouchArch>i386, x86_64</MtouchArch></PropertyGroup>
+  <MtouchArch>x86_64</MtouchArch>  <MtouchSdkVersion>11.1</MtouchSdkVersion>
+  <MtouchFloat32>true</MtouchFloat32>
+</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
@@ -139,9 +141,23 @@
     <Compile Include="GestureViewController.designer.cs">
       <DependentUpon>GestureViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="SectionViewController.cs" />
+    <Compile Include="SectionViewController.designer.cs">
+      <DependentUpon>SectionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuStack.cs" />
+    <Compile Include="MainMenuStack.designer.cs">
+      <DependentUpon>MainMenuStack.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hazzat.Service\Hazzat.Service.csproj">
+      <Project>{B1FE103A-AA9F-4305-9E83-64DDA841B809}</Project>
+      <Name>Hazzat.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
