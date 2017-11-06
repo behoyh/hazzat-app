@@ -65,7 +65,6 @@ namespace Touch
                 }
                 InvokeOnMainThread(() =>
                 {
-                    //AddNewItems(lst.Count);
                     TableView.Source = _dataSource = new DataSource(lst.ToArray());
                 });
             });
