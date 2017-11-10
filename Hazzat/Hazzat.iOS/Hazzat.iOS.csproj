@@ -30,6 +30,7 @@
   <MtouchFloat32>false</MtouchFloat32>
 <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
 <OptimizePNGs>false</OptimizePNGs>
+<AssemblyName>Hazzat</AssemblyName>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -41,7 +42,8 @@
     <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-  <MtouchArch>i386, x86_64</MtouchArch></PropertyGroup>
+  <MtouchArch>i386, x86_64</MtouchArch>  <AssemblyName>Hazzat</AssemblyName>
+</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -150,6 +152,7 @@
     <Compile Include="SectionViewController.designer.cs">
       <DependentUpon>SectionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
