@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h" useSafeAreas="YES" launchScreen="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon-60.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" misplaced="YES">
+                                <rect key="frame" x="270" y="270" width="60" height="60"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="23" firstAttribute="centerY" secondItem="475" secondAttribute="centerY" priority="1" id="39"/>
+                            <constraint firstItem="23" firstAttribute="centerX" secondItem="475" secondAttribute="centerX" priority="1" id="41"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="475"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-72.png" width="72" height="72"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-50.png" width="50" height="50"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon-Spotlight-40.png" width="40" height="40"/>
+        <image name="Icon.png" width="57" height="57"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
+        <image name="iTunesArtwork.png" width="1024" height="1024"/>
+        <image name="iTunesArtwork@2x" width="512" height="512"/>
+        <image name="Logo.png" width="512" height="512"/>
+        <image name="DragMe.png" width="64" height="64"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="0.996078431372549" green="0.91764705882352937" blue="0.83921568627450982" alpha="1"/>
+</document>

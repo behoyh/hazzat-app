@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <DefineConstants>__UNIFIED__;DEBUG;__MOBILE__;__IOS__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -27,7 +27,8 @@
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
   <MtouchArch>x86_64</MtouchArch>  <MtouchSdkVersion>11.1</MtouchSdkVersion>
-  <MtouchFloat32>true</MtouchFloat32>
+  <MtouchFloat32>false</MtouchFloat32>
+<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hazzat.Service\Hazzat.Service.csproj">
