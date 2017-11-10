@@ -42,15 +42,21 @@ namespace Touch
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-			
-			// Perform any additional setup after loading the view, typically from a nib.
-			NavigationItem.LeftBarButtonItem = EditButtonItem;
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
 
-			var addButton = new UIBarButtonItem (UIBarButtonSystemItem.Add, AddNewItem);
-			NavigationItem.RightBarButtonItem = addButton;
+
+            NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIImage.FromFile("settings.png")
+                ,UIBarButtonItemStyle.Plain 
+                ,(ooo,oo)=>{
+                    
+                });
+
+
+            UIBarButtonItem settingsButton = new UIBarButtonItem();
+
+			NavigationItem.RightBarButtonItem = settingsButton;
 
 			
 

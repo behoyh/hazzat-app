@@ -40,11 +40,11 @@
         <image name="Icon-Small.png" width="29" height="29"/>
         <image name="Icon-Spotlight-40.png" width="40" height="40"/>
         <image name="Icon.png" width="57" height="57"/>
-        <image name="iTunesArtwork" width="512" height="512"/>
-        <image name="iTunesArtwork.png" width="1024" height="1024"/>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="iTunesArtwork@2x" width="512" height="512"/>
         <image name="Logo.png" width="512" height="512"/>
         <image name="DragMe.png" width="64" height="64"/>
+        <image name="settings.png" width="25" height="25"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="0.996078431372549" green="0.91764705882352937" blue="0.83921568627450982" alpha="1"/>
 </document>
