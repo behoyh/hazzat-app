@@ -150,10 +150,6 @@
     <Compile Include="SectionViewController.designer.cs">
       <DependentUpon>SectionViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuStack.cs" />
-    <Compile Include="MainMenuStack.designer.cs">
-      <DependentUpon>MainMenuStack.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
