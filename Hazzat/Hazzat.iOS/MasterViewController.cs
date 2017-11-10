@@ -13,7 +13,7 @@ namespace Touch
         HazzatController _controller;
 		public MasterViewController (IntPtr handle) : base (handle)
 		{
-			Title = NSBundle.MainBundle.LocalizedString ("Master", "Master");
+			Title = NSBundle.MainBundle.LocalizedString("Menu", "Main Menu");
 
 			// Custom initialization
 		}
