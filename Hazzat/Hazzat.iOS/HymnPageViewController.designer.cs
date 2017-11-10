@@ -9,10 +9,10 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Touch
+namespace Hazzat.iOS
 {
-    [Register ("GestureViewController")]
-    partial class GestureViewController
+    [Register ("HymnPageViewController")]
+    partial class HymnPageViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

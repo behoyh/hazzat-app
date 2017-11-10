@@ -144,15 +144,19 @@
     <Compile Include="MasterViewController.designer.cs">
       <DependentUpon>MasterViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestureViewController.cs" />
-    <Compile Include="GestureViewController.designer.cs">
-      <DependentUpon>GestureViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="SectionViewController.cs" />
     <Compile Include="SectionViewController.designer.cs">
       <DependentUpon>SectionViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSource.cs" />
+    <Compile Include="HymnPage.cs" />
+    <Compile Include="HymnPage.designer.cs">
+      <DependentUpon>HymnPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HymnPageViewController.cs" />
+    <Compile Include="HymnPageViewController.designer.cs">
+      <DependentUpon>HymnPageViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

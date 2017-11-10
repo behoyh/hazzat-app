@@ -12,9 +12,9 @@ namespace Hazzat.iOS
         static readonly NSString CellIdentifier = new NSString("cell");
         string[] objects;
 
-        public MasterViewController _controller;
+        public UITableViewController _controller;
 
-        public DataSource(string[] items, MasterViewController controller)
+        public DataSource(string[] items, UITableViewController controller)
         {
             objects = items;
             _controller = controller;
@@ -54,6 +54,11 @@ namespace Hazzat.iOS
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
+            HymnPageViewController view = _controller.Storyboard.InstantiateViewController("HymnPage") as HymnPageViewController;
+            if (tableView.GetType() == typeof(SectionViewController))
+            {
+                _controller.NavigationController.PushViewController(view,true);
+            }
             SectionViewController newview = _controller.Storyboard.InstantiateViewController("SectionView") as SectionViewController;
             if (newview != null)
             {
