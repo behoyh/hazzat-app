@@ -4,4 +4,4 @@
 
 > Be a part of the solution!
 
-__[Click here for live updates!](http://beshoyhanna.com/articles)__
+__[Click here for live updates!](http://beshoyhanna.com/articles/59ffc8c75fba2e05591b41b0)__
