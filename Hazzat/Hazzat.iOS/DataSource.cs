@@ -54,15 +54,21 @@ namespace Hazzat.iOS
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            HymnPageViewController view = _controller.Storyboard.InstantiateViewController("HymnPage") as HymnPageViewController;
-            if (tableView.GetType() == typeof(SectionViewController))
+            if (_controller.GetType() == typeof(SectionViewController))
             {
-                _controller.NavigationController.PushViewController(view,true);
+                HymnPageViewController hymnview = _controller.Storyboard.InstantiateViewController("HymnPage") as HymnPageViewController;
+                if (hymnview != null)
+                {
+                    _controller.NavigationController.PushViewController(hymnview, true);
+                    tableView.DeselectRow(indexPath, true);
+                }
+                return;
             }
-            SectionViewController newview = _controller.Storyboard.InstantiateViewController("SectionView") as SectionViewController;
-            if (newview != null)
+
+            SectionViewController sectionview = _controller.Storyboard.InstantiateViewController("SectionView") as SectionViewController;
+            if (sectionview != null)
             {
-                _controller.NavigationController.PushViewController(newview, true);
+                _controller.NavigationController.PushViewController(sectionview, true);
             }
             tableView.DeselectRow(indexPath, true);
         }

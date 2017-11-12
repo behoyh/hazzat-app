@@ -53,7 +53,7 @@ namespace Hazzat.iOS
                 });
 
             List<string> lst = new List<string>();
-            _controller.GetSeasonServices(1, (evt, data) =>
+            _controller.GetSeasonServices(1, (src, data) =>
             {
                 foreach (var item in data.Result)
                 {

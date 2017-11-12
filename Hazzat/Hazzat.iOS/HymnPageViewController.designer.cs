@@ -22,6 +22,10 @@ namespace Hazzat.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView DragImage { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel TipBox { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (Canvas != null) {
@@ -32,6 +36,11 @@ namespace Hazzat.iOS
             if (DragImage != null) {
                 DragImage.Dispose ();
                 DragImage = null;
+            }
+
+            if (TipBox != null) {
+                TipBox.Dispose ();
+                TipBox = null;
             }
         }
     }

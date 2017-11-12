@@ -2,23 +2,21 @@ using Foundation;
 using System;
 using UIKit;
 using System.Drawing;
+using Hazzat.Service;
+using System.IO;
 
 namespace Hazzat.iOS
 {
     public partial class HymnPageViewController : UIViewController
     {
-        #region Private Variables
         private RectangleF originalImageFrame = RectangleF.Empty;
-        #endregion
+        private HazzatController _controller;
 
-        #region Constructors
+
         public HymnPageViewController(IntPtr handle) : base (handle)
         {
 
         }
-        #endregion
-
-        #region Override Methods
 
         public override void ViewDidLoad()
         {
@@ -29,13 +27,20 @@ namespace Hazzat.iOS
             // Save initial state
             originalImageFrame = (System.Drawing.RectangleF)DragImage.Frame;
 
-            WireUpTapGestureRecognizer();
+            string contentDirectoryPath = Path.Combine(NSBundle.MainBundle.BundlePath, "Content/");
+            _controller = new HazzatController();
+            _controller.GetSeasonServiceHymnText(392, (src, data) => {
+                InvokeOnMainThread(() =>
+                {
+                    //WebView.LoadHtmlString($"<html> {data?.Result?[0]?.Content_Coptic} </html>", new NSUrl(contentDirectoryPath, true));
+                    TipBox.Alpha = 0;
+                });
+            });
+
             WireUpDragGestureRecognizer();
+            WireUpTapGestureRecognizer();
         }
 
-        #endregion
-
-        #region Private Methods
 
         private void HandleDrag(UIPanGestureRecognizer recognizer)
         {
@@ -47,7 +52,7 @@ namespace Hazzat.iOS
 
             // Move the image if the gesture is valid
             if (recognizer.State != (UIGestureRecognizerState.Cancelled | UIGestureRecognizerState.Failed
-                | UIGestureRecognizerState.Possible))
+| UIGestureRecognizerState.Possible))
             {
                 // Move the image by adding the offset to the object's frame
                 PointF offset = (System.Drawing.PointF)recognizer.TranslationInView(DragImage);
@@ -105,6 +110,5 @@ namespace Hazzat.iOS
 
             }
         }
-        #endregion
     }
 }

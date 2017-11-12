@@ -56,7 +56,7 @@ namespace Touch
                 });
 
             List<string> lst = new List<string>();
-            _controller.GetSeasons(true, (evt, data) =>
+            _controller.GetSeasons(true, (src, data) =>
             {
                 foreach (var item in data.Result)
                 {

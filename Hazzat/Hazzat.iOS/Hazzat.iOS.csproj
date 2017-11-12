@@ -149,14 +149,11 @@
       <DependentUpon>SectionViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSource.cs" />
-    <Compile Include="HymnPage.cs" />
-    <Compile Include="HymnPage.designer.cs">
-      <DependentUpon>HymnPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="HymnPageViewController.cs" />
     <Compile Include="HymnPageViewController.designer.cs">
       <DependentUpon>HymnPageViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="SourceContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
