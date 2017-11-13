@@ -20,11 +20,11 @@ namespace Hazzat.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView DragImage { get; set; }
+        UIKit.UILabel TipBox { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel TipBox { get; set; }
+        Hazzat.iOS.WebViewExtended WebViewExtend { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -33,14 +33,14 @@ namespace Hazzat.iOS
                 Canvas = null;
             }
 
-            if (DragImage != null) {
-                DragImage.Dispose ();
-                DragImage = null;
-            }
-
             if (TipBox != null) {
                 TipBox.Dispose ();
                 TipBox = null;
+            }
+
+            if (WebViewExtend != null) {
+                WebViewExtend.Dispose ();
+                WebViewExtend = null;
             }
         }
     }

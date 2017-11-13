@@ -154,6 +154,11 @@
       <DependentUpon>HymnPageViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="SourceContext.cs" />
+    <Compile Include="WebViewGestureRecognizer.cs" />
+    <Compile Include="WebViewExtended.cs" />
+    <Compile Include="WebViewExtended.designer.cs">
+      <DependentUpon>WebViewExtended.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
