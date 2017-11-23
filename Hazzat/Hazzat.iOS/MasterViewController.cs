@@ -28,11 +28,13 @@ namespace Touch
 		}
         void AddNewItems(int length)
         {
+            TableView.BeginUpdates();
             for (var i = 0; i <= length ; i++)
             {
                 using (var indexPath = NSIndexPath.FromRowSection(i, 0))
                     TableView.InsertRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Automatic);
             }
+            TableView.EndUpdates();
         }
 
 		public override void DidReceiveMemoryWarning ()

@@ -4,6 +4,7 @@ using UIKit;
 using System.Drawing;
 using Hazzat.Service;
 using System.IO;
+using Hazzat.ViewModels;
 
 namespace Hazzat.iOS
 {
@@ -12,7 +13,7 @@ namespace Hazzat.iOS
         private HazzatController _controller;
 
 
-        public HymnPageViewController(IntPtr handle) : base (handle)
+        public HymnPageViewController(IntPtr handle) : base(handle)
         {
 
         }
@@ -25,11 +26,17 @@ namespace Hazzat.iOS
 
             string contentDirectoryPath = Path.Combine(NSBundle.MainBundle.BundlePath, "Content/");
             _controller = new HazzatController();
-            _controller.GetSeasonServiceHymnText(392, (src, data) => {
-                InvokeOnMainThread(() =>
+
+            _controller.GetSeasonServiceHymnText(392, (src, data) =>
+            {
+                _controller.GetTextRowDelimiterToken((s, d) =>
                 {
-                    WebViewExtend.LoadHtmlString($"<html> {data?.Result?[0]?.Content_Coptic} </html>", new NSUrl(contentDirectoryPath, true));
-                    TipBox.Alpha = 0;
+                    string textDelimiter = d.Result;
+                    InvokeOnMainThread(() =>
+                    {
+                        WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderText(data.Result, textDelimiter), new NSUrl(contentDirectoryPath, true));
+                        TipBox.Alpha = 0;
+                    });
                 });
             });
         }

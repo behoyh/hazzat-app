@@ -8,30 +8,23 @@ namespace Hazzat.iOS
 {
     public partial class WebViewExtended : UIWebView
     {
-        UIImageView img;
-        private RectangleF originalImageFrame = RectangleF.Empty;
+        private readonly UIImageView _img;
+        private RectangleF _originalImageFrame = RectangleF.Empty;
+        private bool _is3DTouchCompat;
 
-        public WebViewExtended(IntPtr handle): base(handle)
+
+        public WebViewExtended(IntPtr handle) : base(handle)
         {
-            img = new UIImageView(UIImage.FromFile("DragMe.png"));
-            img.Frame = new CoreGraphics.CGRect(64, 64, img.Image.CGImage.Width, img.Image.CGImage.Height);
-            this.AddSubview(img);
+            _img = new UIImageView(UIImage.FromFile("DragMe.png"));
+            _img.Frame = new CoreGraphics.CGRect(Center.X, Center.Y, 32, 32);
+            this.AddSubview(_img);
+            _img.Alpha = 0;
+            _img.ExclusiveTouch = true;
+            _img.UserInteractionEnabled = true;
 
-            // Save initial state
-            originalImageFrame = (RectangleF)img.Frame;
+            _originalImageFrame = (RectangleF)_img.Frame;
 
-            WireUpDragGestureRecognizer();
-            WireUpTapGestureRecognizer();
-        }
 
-        public WebViewExtended(UIImageView img) : base()
-        {
-            this.img = img;
-
-            this.AddSubview(img);
-
-            // Save initial state
-            originalImageFrame = (RectangleF)img.Frame;
 
             WireUpDragGestureRecognizer();
             WireUpTapGestureRecognizer();
@@ -39,60 +32,118 @@ namespace Hazzat.iOS
 
         public void ThreeDTouchEventHandler()
         {
-            Action act = new Action(() => { 
-                img.Alpha = 1;
+            Action act = new Action(() =>
+            {
+                _img.Alpha = 1;
             });
+
+            act.Invoke();
         }
         private void HandleDrag(UIPanGestureRecognizer recognizer)
         {
             // If it's just began, cache the location of the image
             if (recognizer.State == UIGestureRecognizerState.Began)
             {
-                originalImageFrame = (System.Drawing.RectangleF)img.Frame;
+                _originalImageFrame = (System.Drawing.RectangleF)_img.Frame;
             }
 
             // Move the image if the gesture is valid
-            if (recognizer.State != (UIGestureRecognizerState.Cancelled | UIGestureRecognizerState.Failed
-| UIGestureRecognizerState.Possible))
+            if (recognizer.State != (UIGestureRecognizerState.Cancelled | UIGestureRecognizerState.Failed | UIGestureRecognizerState.Possible))
             {
                 // Move the image by adding the offset to the object's frame
-                PointF offset = (System.Drawing.PointF)recognizer.TranslationInView(img);
-                RectangleF newFrame = originalImageFrame;
+                PointF offset = (System.Drawing.PointF)recognizer.TranslationInView(_img);
+                RectangleF newFrame = _originalImageFrame;
                 newFrame.Offset(offset.X, offset.Y);
-                //img.Frame = newFrame;
+                _img.Frame = newFrame;
             }
+        }
+
+        public override void TraitCollectionDidChange(UITraitCollection previousTraitCollection)
+        {
+            //Important: call the base function
+            base.TraitCollectionDidChange(previousTraitCollection);
+
+            //See if the new TraitCollection value includes force touch
+            if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
+            {
+                _is3DTouchCompat = true;
+            }
+            _is3DTouchCompat = false;
         }
 
         private void WireUpDragGestureRecognizer()
         {
             // Create a new tap gesture
-            UIPanGestureRecognizer gesture = new UIPanGestureRecognizer();
+            UIPanGestureRecognizer gesture = new UIPanGestureRecognizer()
+            {
+                ShouldRecognizeSimultaneously = (a, b) => true,
+                DelaysTouchesBegan = false,
+                DelaysTouchesEnded = false,
+                CancelsTouchesInView = true
+            };
+
+            // Report touch
+            Action action = () =>
+            {
+                HandleDrag(gesture);
+            };
 
             // Wire up the event handler (have to use a selector)
-            gesture.AddTarget(() => HandleDrag(gesture));
+            gesture.AddTarget(action);
 
             // Add the gesture recognizer to the view
-            img.AddGestureRecognizer(gesture);
+            _img.AddGestureRecognizer(gesture);
         }
 
         private void WireUpTapGestureRecognizer()
         {
             // Create a new tap gesture
-            WebViewGestureRecognizer tapGesture = null;
+            UILongPressGestureRecognizer longGesture = new UILongPressGestureRecognizer()
+            {
+                ShouldRecognizeSimultaneously = (a, b) => true,
+                DelaysTouchesBegan = false,
+                DelaysTouchesEnded = false,
+                CancelsTouchesInView = false
+            };
+
 
             // Report touch
-            Action action = () => {
-                img.Alpha = 0;
-            };
-
-            tapGesture = new WebViewGestureRecognizer(this)
+            Action action = () =>
             {
-                // Configure it
-                NumberOfTapsRequired = 2,  
+                _img.Alpha = 1;
             };
 
-            // Add the gesture recognizer to the view
-            this.AddGestureRecognizer(new WebViewGestureRecognizer(this));
+            longGesture.AddTarget(action);
+
+
+            if (_is3DTouchCompat)
+            {
+                //3D Touch Enabled
+                this.AddGestureRecognizer(new TapGestureRecognizer(this));
+            }
+            else
+            {
+                //No 3D Touch
+                this.AddGestureRecognizer(longGesture);
+            }
+
+            UITapGestureRecognizer tapGesture = new UITapGestureRecognizer()
+            {
+                ShouldRecognizeSimultaneously = (a, b) => true,
+                DelaysTouchesBegan = false,
+                DelaysTouchesEnded = false,
+                CancelsTouchesInView = false,
+                NumberOfTapsRequired = 2,
+            };
+
+            //Hide _img
+            Action action2 = () =>
+            {
+                _img.Alpha = 0;
+            };
+
+            tapGesture.AddTarget(action2);
+            this.AddGestureRecognizer(tapGesture);
         }
     }
 }

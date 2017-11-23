@@ -159,6 +159,8 @@
     <Compile Include="WebViewExtended.designer.cs">
       <DependentUpon>WebViewExtended.cs</DependentUpon>
     </Compile>
+    <Compile Include="HymnPageViewRenderer.cs" />
+    <Compile Include="LanguageHtmlProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
