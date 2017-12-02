@@ -6,15 +6,16 @@ using System.Collections.Generic;
 
 namespace Hazzat.iOS
 {
-    public partial class SectionViewController : UITableViewController
+    public partial class HymnsListViewController : UITableViewController
     {
         private DataSource _dataSource;
         private HazzatController _controller;
         public int id { get; set; }
 
-        public SectionViewController(IntPtr handle) : base (handle)
+        public HymnsListViewController(IntPtr handle) : base (handle)
         {
-            Title = NSBundle.MainBundle.LocalizedString("Section", "Section Page");
+            Title = NSBundle.MainBundle.LocalizedString("HymnsList", "Hymns List");
+            this.id = id;
         }
 
         void AddNewItem(object sender, EventArgs args)
@@ -52,12 +53,11 @@ namespace Hazzat.iOS
                 });
 
             List<KeyValuePair<int, string>> lst = new List<KeyValuePair<int, string>>();
-            _controller.GetSeasonServices(id, (src, data) =>
+            _controller.GetSeasonServiceHymns(id, (src, data) =>
             {
                 foreach (var item in data.Result)
                 {
-                    
-                    lst.Add(new KeyValuePair<int, string>(item.Service_ID,item.Service_Name));
+                    lst.Add(new KeyValuePair<int, string>(item.ItemId, item.Title));
                 }
                 InvokeOnMainThread(() =>
                 {

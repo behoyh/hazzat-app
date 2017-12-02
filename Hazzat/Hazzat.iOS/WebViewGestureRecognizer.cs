@@ -1,5 +1,4 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using Hazzat.iOS;
 using UIKit;
 
@@ -7,7 +6,6 @@ using UIKit;
 public class TapGestureRecognizer : UITapGestureRecognizer
 {
     private readonly WebViewExtended _extendedWebView;
-    private readonly bool _is3DTouchCompat;
 
     public TapGestureRecognizer()
     {
@@ -40,7 +38,6 @@ public class TapGestureRecognizer : UITapGestureRecognizer
             {
                 _extendedWebView.ThreeDTouchEventHandler();
             }
-
         }
     }
 }

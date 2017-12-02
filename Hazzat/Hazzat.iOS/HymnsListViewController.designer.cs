@@ -7,11 +7,12 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace Touch
+namespace Hazzat.iOS
 {
-    [Register ("MasterViewController")]
-    partial class MasterViewController
+    [Register ("HymnsListViewController")]
+    partial class HymnsListViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

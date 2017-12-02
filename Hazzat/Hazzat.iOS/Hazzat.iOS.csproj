@@ -140,10 +140,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MasterViewController.cs" />
-    <Compile Include="MasterViewController.designer.cs">
-      <DependentUpon>MasterViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="SectionViewController.cs" />
     <Compile Include="SectionViewController.designer.cs">
       <DependentUpon>SectionViewController.cs</DependentUpon>
@@ -161,6 +157,25 @@
     </Compile>
     <Compile Include="HymnPageViewRenderer.cs" />
     <Compile Include="LanguageHtmlProperties.cs" />
+    <Compile Include="MainViewController.cs" />
+    <Compile Include="MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSourceExtended.cs" />
+    <Compile Include="SectionMenuViewModel.cs" />
+    <Compile Include="HymnGroup.cs" />
+    <Compile Include="SimplifiedStructureInfo.cs" />
+    <Compile Include="NavigationInfo.cs" />
+    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="NavigationMethod.cs" />
+    <Compile Include="ServiceHymnMenuItem.cs" />
+    <Compile Include="ObservableGroupedCollection.cs" />
+    <Compile Include="ObservableObject.cs" />
+    <Compile Include="ObservableRangeCollection.cs" />
+    <Compile Include="HymnsListViewController.cs" />
+    <Compile Include="HymnsListViewController.designer.cs">
+      <DependentUpon>HymnsListViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -1,26 +1,25 @@
 ﻿using System;
 using Foundation;
 using UIKit;
-using Hazzat;
 using System.Collections.Generic;
 
 namespace Hazzat.iOS
 {
-    public class DataSource : UITableViewSource
+    public class DataSourceExtended : UITableViewSource
     {
         static readonly NSString CellIdentifier = new NSString("cell");
-        public List<KeyValuePair<int, string>> objects;
+        public Dictionary<int, Dictionary<int,string>> objects;
 
         public UITableViewController _controller;
 
-        public DataSource(List<KeyValuePair<int, string>> items, UITableViewController controller)
+        public DataSourceExtended(Dictionary<int, Dictionary<int, string>> items, UITableViewController controller)
         {
             objects = items;
             _controller = controller;
         }
 
 
-        public List<KeyValuePair<int, string>> Objects
+        public Dictionary<int, Dictionary<int, string>> Objects
         {
             get { return objects; }
         }
@@ -41,14 +40,14 @@ namespace Hazzat.iOS
         {
             var cell = (UITableViewCell)tableView.DequeueReusableCell(CellIdentifier, indexPath);
 
-            string item = objects[(int)indexPath.Item].Value;
+            var items = objects.GetValueOrDefault((int)indexPath.Item);
 
             if (cell == null)
             {
                 cell = new UITableViewCell(UITableViewCellStyle.Default, CellIdentifier);
             }
 
-            cell.TextLabel.Text = item;
+            //cell.TextLabel.Text = items.;
 
             return cell;
         }
@@ -65,25 +64,11 @@ namespace Hazzat.iOS
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            int itemId = objects[(int)indexPath.Item].Key;
-
             if (_controller.GetType() == typeof(SectionViewController))
-            {
-                HymnsListViewController hymnview = _controller.Storyboard.InstantiateViewController("HymnsList") as HymnsListViewController;
-                if (hymnview != null)
-                {
-                    hymnview.id = itemId;
-                    _controller.NavigationController.PushViewController(hymnview, true);
-                    tableView.DeselectRow(indexPath, true);
-                }
-                return;
-            }
-            else if(_controller.GetType() == typeof(HymnsListViewController))
             {
                 HymnPageViewController hymnview = _controller.Storyboard.InstantiateViewController("HymnPage") as HymnPageViewController;
                 if (hymnview != null)
                 {
-                    hymnview.id = itemId;
                     _controller.NavigationController.PushViewController(hymnview, true);
                     tableView.DeselectRow(indexPath, true);
                 }
@@ -93,7 +78,6 @@ namespace Hazzat.iOS
             SectionViewController sectionview = _controller.Storyboard.InstantiateViewController("SectionView") as SectionViewController;
             if (sectionview != null)
             {
-                sectionview.id = itemId;
                 _controller.NavigationController.PushViewController(sectionview, true);
             }
             tableView.DeselectRow(indexPath, true);

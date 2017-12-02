@@ -11,11 +11,11 @@ namespace Hazzat.iOS
     public partial class HymnPageViewController : UIViewController
     {
         private HazzatController _controller;
+        public int id { get; set; }
 
 
         public HymnPageViewController(IntPtr handle) : base(handle)
         {
-
         }
 
         public override void ViewDidLoad()
@@ -27,7 +27,7 @@ namespace Hazzat.iOS
             string contentDirectoryPath = Path.Combine(NSBundle.MainBundle.BundlePath, "Content/");
             _controller = new HazzatController();
 
-            _controller.GetSeasonServiceHymnText(392, (src, data) =>
+            _controller.GetSeasonServiceHymnText(id, (src, data) =>
             {
                 _controller.GetTextRowDelimiterToken((s, d) =>
                 {

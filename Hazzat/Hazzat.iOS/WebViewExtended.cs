@@ -24,7 +24,10 @@ namespace Hazzat.iOS
 
             _originalImageFrame = (RectangleF)_img.Frame;
 
-
+            if (TraitCollection.ForceTouchCapability != UIForceTouchCapability.Unavailable)
+            {
+                _is3DTouchCompat = true;
+            }
 
             WireUpDragGestureRecognizer();
             WireUpTapGestureRecognizer();

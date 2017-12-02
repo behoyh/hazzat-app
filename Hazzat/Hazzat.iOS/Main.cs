@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Touch
+namespace Hazzat.iOS
 {
 	public class Application
 	{
