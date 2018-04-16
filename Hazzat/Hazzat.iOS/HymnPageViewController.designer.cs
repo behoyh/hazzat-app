@@ -16,11 +16,11 @@ namespace Hazzat.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView Canvas { get; set; }
+        Hazzat.iOS.HymnView Canvas { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel TipBox { get; set; }
+        UIKit.UITextView TipBox { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

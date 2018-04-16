@@ -176,6 +176,18 @@
     <Compile Include="HymnsListViewController.designer.cs">
       <DependentUpon>HymnsListViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="TipBox.cs" />
+    <Compile Include="TipBox.designer.cs">
+      <DependentUpon>TipBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HymnView.cs" />
+    <Compile Include="HymnView.designer.cs">
+      <DependentUpon>HymnView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBar.cs" />
+    <Compile Include="TabBar.designer.cs">
+      <DependentUpon>TabBar.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
