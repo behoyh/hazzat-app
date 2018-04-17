@@ -14,5 +14,8 @@ namespace Hazzat.iOS
     [Register ("HymnView")]
     partial class HymnView
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

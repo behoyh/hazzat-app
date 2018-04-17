@@ -10,13 +10,15 @@ namespace Hazzat.iOS
 {
     public partial class HymnPageViewController : UIViewController
     {
-        private HazzatController _controller;
-        string contentDirectoryPath = Path.Combine(NSBundle.MainBundle.BundlePath, "Content/");
+        private readonly HazzatController _controller;
+        private readonly string _contentDirectoryPath;
         public int id { get; set; }
 
 
         public HymnPageViewController(IntPtr handle) : base(handle)
         {
+            _controller = new HazzatController();
+            _contentDirectoryPath = Path.Combine(NSBundle.MainBundle.BundlePath, "Content/");
         }
 
         public override void ViewDidLoad()
@@ -25,29 +27,26 @@ namespace Hazzat.iOS
 
             Title = "HymnPage";
 
-            var TextButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var TextButton = new UIBarButtonItem(UIBarButtonSystemItem.PageCurl, (s, e) =>
             {
                 LoadText();
             });
 
-            var HazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var HazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (s, e) =>
             {
                 LoadHazzat();
             });
 
-            var VerticalHazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var VerticalHazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Compose, (s, e) =>
             {
                 LoadVerticalHazzat();
             });
 
             this.SetToolbarItems(new UIBarButtonItem[] {
                 TextButton, HazzatButton, VerticalHazzatButton
-            }, false);
+            }, true);
 
             this.NavigationController.ToolbarHidden = false;
-
-
-            _controller = new HazzatController();
 
             LoadText();
 
@@ -72,7 +71,7 @@ namespace Hazzat.iOS
                         string textDelimiter = d.Result;
                         InvokeOnMainThread(() =>
                         {
-                            WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderText(data.Result, textDelimiter), new NSUrl(contentDirectoryPath, true));
+                            WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderText(data.Result, textDelimiter), new NSUrl(_contentDirectoryPath, true));
                         });
                     });
                 }
@@ -87,7 +86,7 @@ namespace Hazzat.iOS
                 {
                     InvokeOnMainThread(() =>
                     {
-                        WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderHazzatHtml(data.Result), new NSUrl(contentDirectoryPath, true));
+                        WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderHazzatHtml(data.Result), new NSUrl(_contentDirectoryPath, true));
                     });
                 }
             });
@@ -101,7 +100,7 @@ namespace Hazzat.iOS
                 {
                     InvokeOnMainThread(() =>
                     {
-                    WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderHazzatHtml(data.Result), new NSUrl(contentDirectoryPath, true));
+                        WebViewExtend.LoadHtmlString(HymnPageViewRenderer.RenderHazzatHtml(data.Result), new NSUrl(_contentDirectoryPath, true));
                     });
                 }
             });

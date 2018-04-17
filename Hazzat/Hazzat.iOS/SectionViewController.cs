@@ -56,8 +56,7 @@ namespace Hazzat.iOS
             {
                 foreach (var item in data.Result)
                 {
-                    
-                    lst.Add(new KeyValuePair<int, string>(item.Service_ID,item.Service_Name));
+                    lst.Add(new KeyValuePair<int, string>(item.ItemId,item.Service_Name));
                 }
                 InvokeOnMainThread(() =>
                 {

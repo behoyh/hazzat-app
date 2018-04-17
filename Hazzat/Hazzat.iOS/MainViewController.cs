@@ -73,6 +73,7 @@ namespace Hazzat.iOS
                 InvokeOnMainThread(() =>
                 {
                     TableView.Source = _dataSource = new DataSource(lst, this);
+                    TableView.ReloadData();
                 });
             });
         }
