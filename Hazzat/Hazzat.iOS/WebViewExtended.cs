@@ -114,6 +114,7 @@ namespace Hazzat.iOS
             Action action = () =>
             {
                 _img.Alpha = 1;
+                _img.Frame = new CoreGraphics.CGRect(Center.X, Center.Y, 32, 32);
             };
 
             longGesture.AddTarget(action);
