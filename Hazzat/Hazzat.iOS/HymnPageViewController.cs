@@ -27,22 +27,25 @@ namespace Hazzat.iOS
 
             Title = "HymnPage";
 
-            var TextButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var TextButton = new UIBarButtonItem(UIImage.FromFile("file.png"), UIBarButtonItemStyle.Plain, (s, e) =>
             {
                 LoadText();
             });
+
             var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
-            var HazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var spacerSmall = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 1 };
+
+            var HazzatButton = new UIBarButtonItem(UIImage.FromFile("document.png"), UIBarButtonItemStyle.Plain, (s, e) =>
             {
                 LoadHazzat();
             });
-            var VerticalHazzatButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) =>
+            var VerticalHazzatButton = new UIBarButtonItem(UIImage.FromFile("file-1.png"), UIBarButtonItemStyle.Plain, (s, e) =>
             {
                 LoadVerticalHazzat();
             });
 
             this.SetToolbarItems(new UIBarButtonItem[] {
-                TextButton, spacer, HazzatButton, spacer, VerticalHazzatButton
+                spacerSmall, TextButton, spacer, HazzatButton, spacer, VerticalHazzatButton, spacerSmall
             }, true);
 
             this.NavigationController.ToolbarHidden = false;

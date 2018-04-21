@@ -132,6 +132,28 @@
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\settings%402x.png" />
     <BundleResource Include="Resources\settings%403x.png" />
+    <BundleResource Include="Resources\document.png" />
+    <BundleResource Include="Resources\document%402x.png" />
+    <BundleResource Include="Resources\document%403x.png" />
+    <BundleResource Include="Resources\file-1.png" />
+    <BundleResource Include="Resources\file-1%402x.png" />
+    <BundleResource Include="Resources\file-1%403x.png" />
+    <BundleResource Include="Resources\file.png" />
+    <BundleResource Include="Resources\file%402x.png" />
+    <BundleResource Include="Resources\file%403x.png" />
+    <BundleResource Include="Resources\menu-1.png" />
+    <BundleResource Include="Resources\menu-1%402x.png" />
+    <BundleResource Include="Resources\menu-1%403x.png" />
+    <BundleResource Include="Resources\music-player-1.png" />
+    <BundleResource Include="Resources\music-player-1%402x.png" />
+    <BundleResource Include="Resources\music-player-1%403x.png" />
+    <BundleResource Include="Resources\previous-item.png" />
+    <BundleResource Include="Resources\windows-1.png" />
+    <BundleResource Include="Resources\windows-1%402x.png" />
+    <BundleResource Include="Resources\windows-1%403x.png" />
+    <BundleResource Include="Resources\worldwide.png" />
+    <BundleResource Include="Resources\worldwide%402x.png" />
+    <BundleResource Include="Resources\worldwide%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
