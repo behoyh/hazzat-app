@@ -17,7 +17,6 @@ namespace Hazzat.iOS
         {
             _img = new UIImageView(UIImage.FromFile("DragMe.png"));
            
-
      
             _img.ExclusiveTouch = true;
             _img.UserInteractionEnabled = true;

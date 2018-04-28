@@ -189,7 +189,7 @@
         </scene>
         <scene sceneID="18351">
             <objects>
-                <viewController id="18352" sceneMemberID="viewController" customClass="DonationController">
+                <viewController id="18352" sceneMemberID="viewController" customClass="DonationController" storyboardIdentifier="DonationsView">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="18349"/>
                         <viewControllerLayoutGuide type="bottom" id="18350"/>
@@ -199,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Donation Amount" borderStyle="roundedRect" minimumFontSize="17" id="18356" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="18356" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="16" y="144" width="346" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -221,23 +221,11 @@
                                     <action selector="UIButton18358_TouchUpInside:" destination="18352" id="18359" eventType="touchUpInside"/>
                                 </connections>
                             </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="18361" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" opaque="NO">
-                                <rect key="frame" x="16" y="306" width="382" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <state key="normal" title="Donate"/>
-                                <connections>
-                                    <action selector="UIButton18361_TouchUpInside:" destination="18352" id="18362" eventType="touchUpInside"/>
-                                </connections>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="DonationAmount" destination="18356" id="name-outlet-18356"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18354" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

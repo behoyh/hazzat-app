@@ -14,16 +14,20 @@ namespace Hazzat.iOS
     [Register ("DonationController")]
     partial class DonationController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField DonationAmount { get; set; }
+
         [Action ("UIButton18358_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton18358_TouchUpInside (UIKit.UIButton sender);
 
-        [Action ("UIButton18361_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void UIButton18361_TouchUpInside (UIKit.UIButton sender);
-
         void ReleaseDesignerOutlets ()
         {
+            if (DonationAmount != null) {
+                DonationAmount.Dispose ();
+                DonationAmount = null;
+            }
         }
     }
 }

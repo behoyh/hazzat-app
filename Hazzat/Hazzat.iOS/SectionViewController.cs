@@ -48,7 +48,10 @@ namespace Hazzat.iOS
             NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIImage.FromFile("settings.png")
                 , UIBarButtonItemStyle.Plain
                 , (ooo, oo) => {
+                    var donationView = this.Storyboard.InstantiateViewController("DonationsView") as DonationController;
 
+                    this.NavigationController.PushViewController(donationView, true);
+               
                 });
 
             List<KeyValuePair<int, string>> lst = new List<KeyValuePair<int, string>>();

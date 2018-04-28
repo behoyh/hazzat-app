@@ -53,7 +53,8 @@ namespace Hazzat.iOS
             , UIBarButtonItemStyle.Plain
                 , (ooo, oo) =>
                 {
-
+                var donationView = this.Storyboard.InstantiateViewController("DonationsView") as DonationController;
+                this.NavigationController.PushViewController(donationView, true);
                 });
 
             NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIImage.FromFile("info.png")
