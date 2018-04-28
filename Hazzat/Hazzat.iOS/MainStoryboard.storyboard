@@ -187,6 +187,62 @@
             </objects>
             <point key="canvasLocation" x="824" y="74"/>
         </scene>
+        <scene sceneID="18351">
+            <objects>
+                <viewController id="18352" sceneMemberID="viewController" customClass="DonationController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="18349"/>
+                        <viewControllerLayoutGuide type="bottom" id="18350"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="18353">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Donation Amount" borderStyle="roundedRect" minimumFontSize="17" id="18356" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="16" y="144" width="346" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="18357" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="16" y="84" width="311" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="18358" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="16" y="33" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="UIButton18358_TouchUpInside:" destination="18352" id="18359" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="18361" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" opaque="NO">
+                                <rect key="frame" x="16" y="306" width="382" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal" title="Donate"/>
+                                <connections>
+                                    <action selector="UIButton18361_TouchUpInside:" destination="18352" id="18362" eventType="touchUpInside"/>
+                                </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18354" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="887"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon-60.png" width="60" height="60"/>
@@ -202,5 +258,13 @@
         <image name="Logo.png" width="512" height="512"/>
         <image name="DragMe.png" width="64" height="64"/>
         <image name="settings.png" width="25" height="25"/>
+        <image name="document.png" width="25" height="25"/>
+        <image name="file-1.png" width="25" height="25"/>
+        <image name="file.png" width="25" height="25"/>
+        <image name="menu-1.png" width="25" height="25"/>
+        <image name="music-player-1.png" width="25" height="25"/>
+        <image name="previous-item.png" width="32" height="32"/>
+        <image name="windows-1.png" width="25" height="25"/>
+        <image name="worldwide.png" width="25" height="25"/>
     </resources>
 </document>

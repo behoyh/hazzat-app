@@ -16,9 +16,9 @@ namespace Hazzat.iOS
         public WebViewExtended(IntPtr handle) : base(handle)
         {
             _img = new UIImageView(UIImage.FromFile("DragMe.png"));
-            _img.Frame = new CoreGraphics.CGRect(Center.X, Center.Y, 32, 32);
-            this.AddSubview(_img);
-            _img.Alpha = 0;
+           
+
+     
             _img.ExclusiveTouch = true;
             _img.UserInteractionEnabled = true;
 
@@ -37,7 +37,9 @@ namespace Hazzat.iOS
         {
             Action act = new Action(() =>
             {
+                _img.Frame = new CoreGraphics.CGRect((this.Frame.Width/2) - (32/2), (this.Frame.Height/2) - (32/2), 32, 32);
                 _img.Alpha = 1;
+                this.AddSubview(_img);
             });
 
             act.Invoke();
@@ -113,7 +115,9 @@ namespace Hazzat.iOS
             // Report touch
             Action action = () =>
             {
+                _img.Frame = new CoreGraphics.CGRect((this.Frame.Width / 2) - (32 / 2), (this.Frame.Height / 2), 32, 32);
                 _img.Alpha = 1;
+                this.AddSubview(_img);
             };
 
             longGesture.AddTarget(action);
@@ -142,7 +146,8 @@ namespace Hazzat.iOS
             //Hide _img
             Action action2 = () =>
             {
-                _img.Alpha = 0;
+                this.WillRemoveSubview(_img);
+                _img.RemoveFromSuperview();
             };
 
             tapGesture.AddTarget(action2);

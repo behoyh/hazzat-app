@@ -210,6 +210,10 @@
     <Compile Include="TabBar.designer.cs">
       <DependentUpon>TabBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonationController.cs" />
+    <Compile Include="DonationController.designer.cs">
+      <DependentUpon>DonationController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
